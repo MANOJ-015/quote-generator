@@ -30,8 +30,10 @@ function newQuote() {
     const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
 
     // check if author field is null
-    if (quote.author == null) {
+    if (!quote.author) {
         authorText.text = "Unknown";
+    }else{
+        authorText.textContent = quote.author;
     }
 
     // check the quote to determine styling
@@ -43,8 +45,7 @@ function newQuote() {
 
     //set quote and hide the loader
     complete();
-
-    authorText.textContent = quote.author;
+    
     quoteText.textContent = quote.text;
 }
 
